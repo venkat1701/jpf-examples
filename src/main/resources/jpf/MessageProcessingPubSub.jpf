@@ -1,0 +1,26 @@
+# JPF configuration for MessageProcessingPubSub example
+
+# Target class to analyze
+target = io.github.venkat1701.jpfexamples.racecondition.MessageProcessingPubSub
+
+# Use the race detector listener
+listener = gov.nasa.jpf.listener.PreciseRaceDetector
+
+# Track field access
+vm.shared.class = io.github.venkat1701.jpfexamples.racecondition.MessageProcessingPubSub
+vm.shared.field = isProcessing
+
+# Print out thread information
+vm.tree_output = true
+
+# Use depth-first search
+search.class = gov.nasa.jpf.search.heuristic.BFSHeuristic
+
+# Maximum search depth
+search.depth_limit = 100
+
+# Report race conditions with thread stacks
+report.console.property_violation = error,trace,snapshot
+
+# Show thread scheduling choices
+vm.por = false
