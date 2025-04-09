@@ -1,0 +1,25 @@
+# JPF configuration for DistributedCache example
+
+# Target class to analyze
+target = io.github.venkat1701.jpfexamples.deadlock.DistributedCache
+
+# Use the deadlock detector listener
+listener = gov.nasa.jpf.listener.DeadlockAnalyzer
+
+# Print out thread information
+vm.tree_output = true
+
+# Search for deadlocks
+search.class = gov.nasa.jpf.search.heuristic.DFSHeuristic
+
+# Check for deadlocks
+search.properties = gov.nasa.jpf.vm.NotDeadlockedProperty
+
+# Maximum search depth
+search.depth_limit = 100
+
+# Report deadlocks with thread stacks
+report.console.property_violation = error,trace,snapshot
+
+# Show the thread states and locks when a deadlock is found
+report.console.show_steps = true
